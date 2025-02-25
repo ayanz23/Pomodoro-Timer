@@ -1,0 +1,152 @@
+/* Basic styling for the body */
+body {
+    background-color: #808080; /* Light blue background */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    font-family: 'Monaco', 'Lucida Console'; /* Set a nicer font */
+    flex-direction: column; /* Stack content vertically */
+}
+
+/* Styling for the timer container */
+#timer-container {
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Add margin to center vertically */
+}
+
+/* Styling for the timer display */
+#timer {
+    font-size: 48px; /* Large font size for timer */
+    margin-bottom: 20px; /* Space below the timer */
+}
+
+/* Styling for the timer box */
+#timer-box {
+    border: 2px solid white; /* Black border */
+    padding: 40px; /* Larger padding for a bigger box */
+    display: inline-block; /* Inline block for proper sizing */
+    background-color: #7f7f7f; /* White background */
+    margin-bottom: 20px; /* Space between timer and buttons */
+}
+
+/* Styling for buttons */
+button {
+    padding: 10px 20px; /* Padding for buttons */
+    font-size: 16px; /* Font size for buttons */
+    margin: 5px; /* Margin around buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: block; /* Make buttons block elements to stack them */
+    width: 100%; /* Full width for buttons */
+}
+
+/* Specific styling for each button */
+#start-button {
+    background-color: #6a6a6a; /* Green background */
+    color: white; /* White text */
+    font-family: 'Monaco', 'Lucida Console';
+}
+
+#settings-button {
+    background-color: #6a6a6a; /* Blue background */
+    color: white; /* White text */
+    font-family: 'Monaco', 'Lucida Console';
+}
+
+#pause-button {
+    background-color: #6a6a6a; /* Orange background */
+    color: white; /* White text */
+    font-family: 'Monaco', 'Lucida Console';
+}
+
+/* Styling for session counter */
+#session-counter {
+    font-size: 18px; /* Font size for session counter */
+    margin-top: 10px; /* Space above session counter */
+}
+
+/* Styling for timer label */
+#timer-label {
+    font-size: 24px; /* Font size for timer label */
+    margin-bottom: 10px; /* Space below timer label */
+}
+
+/* Styling for modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position for modal */
+    z-index: 1; /* On top of other content */
+    left: 0; /* Align to left */
+    top: 0; /* Align to top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+    padding-top: 60px; /* Space above modal content */
+}
+
+/* Styling for modal content */
+.modal-content {
+    background-color: #fefefe; /* White background for modal */
+    margin: 5% auto; /* Center modal */
+    padding: 20px; /* Padding inside modal */
+    border: 1px solid #888; /* Border around modal */
+    width: 80%; /* Width of modal */
+    max-width: 400px; /* Max width for modal */
+}
+
+/* Styling for done button */
+#done-button {
+    background-color: #6a6a6a; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for button */
+    margin-top: 10px; /* Space above button */
+    cursor: pointer; /* Pointer cursor on hover */
+} 
+
+/* Styling for text area */
+textarea {
+    width: 200px; /* Width for text area */
+}
+
+/* Update colors for timer box based on session type */
+/* Removed JavaScript function from CSS */
+
+/* Styling for the to-do container */
+#todo-container {
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Add margin to center vertically */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Styling for the to-do list */
+#todo-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+/* Styling for each to-do item */
+.todo-item {
+    padding: 10px; /* Padding for items */
+    margin: 5px 0; /* Margin between items */
+    background-color: #7f7f7f; /* Background color for items */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for to-do items */
+.todo-item:hover {
+    background-color: #555; /* Darken on hover */
+}
+
+/* Styling for the to-do input and submit button */
+#todo-input, #submit-todo-button {
+    width: 200px; /* Set the same width for both */
+    padding: 10px; /* Add padding for better appearance */
+    font-family: 'Monaco', 'Lucida Console'; /* Consistent font */
+    font-size: 16px; /* Consistent font size */
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Pomodoro Timer</title> <!-- Page title -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <div id="timer-container"> <!-- Container for timer elements -->
+        <h2 style="color:white" id="timer-label">Pomodoro</h2> <!-- Label for the current session type -->
+        <div id="timer-box"> <!-- Box containing the timer -->
+            <h1 style="color:white" id="timer">25:00</h1> <!-- Timer display -->
+        </div>
+        <button id="start-button">Start</button> <!-- Start button -->
+        <button id="pause-button">Pause</button> <!-- Pause button -->
+        <button id="settings-button">Settings</button> <!-- Settings button -->
+        <div style="color:white" id="session-counter">Session: 1</div> <!-- Display for session count -->
+    </div>
+
+    <div id="settings-modal" class="modal"> <!-- Modal for settings -->
+        <div class="modal-content"> <!-- Content of the modal -->
+            <h2>Settings</h2> <!-- Header for settings -->
+            <label for="pomodoro-time-minutes">Pomodoro Duration:</label> <!-- Label for Pomodoro duration -->
+            <input type="number" id="pomodoro-time-minutes" value="25" min="0" style="width: 40px;"> min <!-- Input for minutes -->
+            <input type="number" id="pomodoro-time-seconds" value="0" min="0" max="59" style="width: 40px;"> sec <!-- Input for seconds -->
+            <br>
+            <label for="short-break-time-minutes">Short Break Duration:</label> <!-- Label for short break duration -->
+            <input type="number" id="short-break-time-minutes" value="5" min="0" style="width: 40px;"> min <!-- Input for minutes -->
+            <input type="number" id="short-break-time-seconds" value="0" min="0" max="59" style="width: 40px;"> sec <!-- Input for seconds -->
+            <br>
+            <label for="long-break-time-minutes">Long Break Duration:</label> <!-- Label for long break duration -->
+            <input type="number" id="long-break-time-minutes" value="15" min="0" style="width: 40px;"> min <!-- Input for minutes -->
+            <input type="number" id="long-break-time-seconds" value="0" min="0" max="59" style="width: 40px;"> sec <!-- Input for seconds -->
+            <button id="done-button">Done</button> <!-- Done button to save settings -->
+        </div>
+    </div>
+
+    <div id="todo-container"> <!-- Container for the to-do list -->
+        <h2 style="color:white">To-Do List</h2> <!-- Header for the to-do list -->
+        <input type="text" id="todo-input" placeholder="Enter a task..." style="width: 200px;"> <!-- Input for new tasks -->
+        <button id="submit-todo-button">Submit</button> <!-- Button to add task -->
+        <ul id="todo-list"> <!-- List to display tasks -->
+            <!-- Tasks will be added here dynamically -->
+        </ul>
+    </div>
+
+    <script src="main.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>
