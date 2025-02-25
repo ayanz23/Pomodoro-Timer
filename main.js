@@ -121,6 +121,9 @@ document.getElementById('done-button').addEventListener('click', () => {
 
     // Reset and start the timer with new settings
     resetTimer(); // Reset the timer with new durations
+    document.getElementById('timer').textContent = 
+        (Math.floor(timerDuration / 60)).toString().padStart(2, '0') + ':' + 
+        (timerDuration % 60).toString().padStart(2, '0'); // Display the new timer duration
     updateTimerLabel(); // Update the label immediately after settings change
     updateTimerBoxColor(); // Update the box color immediately after settings change
 
