@@ -30,7 +30,8 @@ function updateTimerBoxColor() {
 function showSettingsModal() {
     // Display the settings modal
     document.getElementById('settings-modal').style.display = 'block';
-    resetTimer(); // Reset the timer when settings are opened
+    // Don't reset the timer when settings are opened
+    clearInterval(timerInterval); // Just clear the interval to pause the timer
 }
 
 function hideSettingsModal() {
@@ -47,10 +48,12 @@ function resetTimer() {
     updateTimerLabel(); // Update the label
     updateTimerBoxColor(); // Update the box color
     document.getElementById('timer').textContent = "25:00"; // Reset timer display
+    document.getElementById('pause-button').textContent = 'Pause'; // Reset pause button text
 }
 
 function startTimer(duration) {
     let timer = duration, minutes, seconds;
+    updateTimerBoxColor(); // Change the box color to reflect the active timer state
     timerInterval = setInterval(() => {
         if (!isPaused) { // Only update if not paused
             minutes = parseInt(timer / 60, 10); // Calculate minutes
@@ -91,8 +94,18 @@ function startTimer(duration) {
 
 // Event listener for the start button
 document.getElementById('start-button').addEventListener('click', () => {
-    resetTimer(); // Reset the timer
-    startTimer(timerDuration); // Start the timer
+    clearInterval(timerInterval); // Clear any existing timer
+    isPaused = false; // Reset pause state
+    document.getElementById('pause-button').textContent = 'Pause'; // Reset pause button text
+    
+    // If timer was previously started and paused, start a new timer with current settings
+    if (currentSessionType === "Pomodoro") {
+        startTimer(timerDuration);
+    } else if (currentSessionType === "Short Break") {
+        startTimer(shortBreakDuration);
+    } else {
+        startTimer(longBreakDuration);
+    }
 });
 
 // Event listener for the pause button
@@ -119,13 +132,20 @@ document.getElementById('done-button').addEventListener('click', () => {
     shortBreakDuration = (shortBreakMinutes * 60) + shortBreakSeconds;
     longBreakDuration = (longBreakMinutes * 60) + longBreakSeconds;
 
-    // Reset and start the timer with new settings
-    resetTimer(); // Reset the timer with new durations
-    document.getElementById('timer').textContent = 
-        (Math.floor(timerDuration / 60)).toString().padStart(2, '0') + ':' + 
-        (timerDuration % 60).toString().padStart(2, '0'); // Display the new timer duration
-    updateTimerLabel(); // Update the label immediately after settings change
-    updateTimerBoxColor(); // Update the box color immediately after settings change
+    // Update the timer display without changing the background color
+    if (currentSessionType === "Pomodoro") {
+        document.getElementById('timer').textContent = 
+            (Math.floor(timerDuration / 60)).toString().padStart(2, '0') + ':' + 
+            (timerDuration % 60).toString().padStart(2, '0');
+    } else if (currentSessionType === "Short Break") {
+        document.getElementById('timer').textContent = 
+            (Math.floor(shortBreakDuration / 60)).toString().padStart(2, '0') + ':' + 
+            (shortBreakDuration % 60).toString().padStart(2, '0');
+    } else {
+        document.getElementById('timer').textContent = 
+            (Math.floor(longBreakDuration / 60)).toString().padStart(2, '0') + ':' + 
+            (longBreakDuration % 60).toString().padStart(2, '0');
+    }
 
     hideSettingsModal(); // Hide the settings modal
 });
