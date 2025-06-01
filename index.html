@@ -11,8 +11,10 @@
 <body>
     <div id="timer-container">
         <h2 style="color:white" id="timer-label">Pomodoro</h2>
-        <div id="timer-box">
-            <h1 style="color:white" id="timer">25:00</h1>
+        <div id="timer-box-wrapper">
+            <div id="timer-box">
+                <h1 style="color:white" id="timer">25:00</h1>
+            </div>
         </div>
         <button id="start-button">Start</button>
         <button id="pause-button">Pause</button>
@@ -38,9 +40,19 @@
         </div>
     </div>
 
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to remove this task?</p>
+            <button id="confirm-yes">Yes</button>
+            <button id="confirm-no">No</button>
+        </div>
+    </div>
+
     <div id="todo-container">
         <h2 style="color:white">To-Do List</h2>
-        <input type="text" id="todo-input" placeholder="Enter a task..." style="width: 200px;">
+        <input type="text" id="todo-input" placeholder="Enter a task" style="width: 200px;">
+        <input type="text" id="todo-category-input" placeholder="Category" style="width: 150px;">
         <button id="submit-todo-button">Submit</button>
         <ul id="todo-list">
         </ul>
